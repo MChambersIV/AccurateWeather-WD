@@ -8,6 +8,7 @@ var windSpeed0 = document.getElementById("windspeed0")
 var uv0 = document.getElementById("uv0")
 var img0 = document.getElementById("img0")
 var time0 = document.getElementById("time0")
+var name0 = document.getElementById("name0")
 
 var temp1 = document.getElementById("temp1")
 var humidity1 = document.getElementById("humidity1")
@@ -43,6 +44,11 @@ var windSpeed5 = document.getElementById("windspeed5")
 var uv5 = document.getElementById("uv5")
 var img5 = document.getElementById("img5")
 var time5 = document.getElementById("time5")
+
+var timeNow = new Date();
+var tDay = timeNow.getDate()
+var tMonth = timeNow.getMonth() + 1
+var tYear = timeNow.getFullYear()
 
 var savedCities = [];
 
@@ -80,10 +86,11 @@ var findWeatherNow = function(city) {
     .then(function (data) {
       console.log(data);
       
+      name0.textContent = data.name;
       temp0.textContent = "Temp: " + data.main.temp;
       humidity0.textContent = "Humidity: " + data.main.humidity + "%";
       windSpeed0.textContent = "Wind Speed: " + data.wind.speed;
-      time0.textContent = data.dt_txt;
+      time0.textContent = tYear+"-"+tMonth+"-"+tDay;
       
       img0.src = "https://openweathermap.org/img/wn/"+ data.weather[0].icon+"@2x.png";
     });
