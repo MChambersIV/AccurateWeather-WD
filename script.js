@@ -55,6 +55,7 @@ var savedCities = [];
 
 
 cSearchForm.addEventListener('submit', searchCity);
+cSearchForm.addEventListener('submit', saveCity);
 
 function saveCity(event) {
   event.preventDefault();
